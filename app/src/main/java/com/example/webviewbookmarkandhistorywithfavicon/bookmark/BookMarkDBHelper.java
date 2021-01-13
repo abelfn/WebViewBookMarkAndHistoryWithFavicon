@@ -168,4 +168,16 @@ public class BookMarkDBHelper {
 		}
 
 	}
+
+	public boolean checkif(String url){
+		String qurey="Select * from " + BOOKMARKS_TABLE + " WHERE " + URL + " = '" + url + "'";
+		Cursor cursor = mDb.rawQuery(qurey,null);
+		if(cursor.getCount()<=0){
+			cursor.close();
+			return false;
+		}
+		cursor.close();
+		return true;
+
+	}
 }

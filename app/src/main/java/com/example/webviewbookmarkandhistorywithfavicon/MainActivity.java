@@ -106,12 +106,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                dbHelperb.open();
-                dbHelperb.insertBookMarks(new BookMarkHistoryItems(BookMarkInsertSetterGetter.getFavicon(), BookMarkInsertSetterGetter.getTitle(), BookMarkInsertSetterGetter.getUrl()));
+                if(dbHelperb.checkif(BookMarkInsertSetterGetter.getUrl())){
+                    Toast.makeText(MenuActivity.this, "BookMark exists", Toast.LENGTH_SHORT).show();
+                }else{
+                    dbHelperb.insertBookMarks(new BookMarkHistoryItems(BookMarkInsertSetterGetter.getFavicon(), BookMarkInsertSetterGetter.getTitle(), BookMarkInsertSetterGetter.getUrl()));
 
-                UpdateBookMarkFavicon task = new UpdateBookMarkFavicon(BookMarkUpdateSetterGetter.getUrl(),BookMarkUpdateSetterGetter.getOriginalUrl(), BookMarkUpdateSetterGetter.getFavicon());
-                task.execute();
-                Toast.makeText(MainActivity.this,"Bookmark inserted",Toast.LENGTH_SHORT);
+                    UpdateBookMarkFavicon task = new UpdateBookMarkFavicon(BookMarkUpdateSetterGetter.getUrl(),BookMarkUpdateSetterGetter.getOriginalUrl(), BookMarkUpdateSetterGetter.getFavicon());
+                    task.execute();
+                    Toast.makeText(MenuActivity.this, "Bookmark Saved", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
