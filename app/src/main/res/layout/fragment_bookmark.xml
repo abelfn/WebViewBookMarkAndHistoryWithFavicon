@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/rlz"
+    android:background="#ffffff"
+    tools:context=".bookmark.BookMark">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="415dp">
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="415dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="2dp"
+        android:id="@+id/blv"/>
+
+        <TextView
+            android:id="@+id/empty_b"
+            android:layout_width="match_parent"
+            android:layout_height="415dp"
+            android:text="No BookMark"
+            style="@style/BaseTheme.EmptyView" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:gravity="right"
+        android:background="@drawable/bottom_border"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/clear_all_bookmark"
+            android:text="Clear"
+            android:textSize="17sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>
