@@ -66,11 +66,11 @@ public class HistoryDBHelper {
 		return this;
 	}
 
-	public static void insertHistory(BookMarkHistoryItems employee) {
+	public static void insertHistory(BookMarkHistoryItems histories) {
 		ContentValues cv = new ContentValues();
-		cv.put(FAVICON, Utility.getBytes(employee.getFavicon()));
-		cv.put(TITLE, employee.getTitle());
-		cv.put(URl, employee.getUrl());
+		cv.put(FAVICON, Utility.getBytes(histories.getFavicon()));
+		cv.put(TITLE, histories.getTitle());
+		cv.put(URl, histories.getUrl());
 		mDb.insert(HISTORY_TABLE, null, cv);
 	}
 
